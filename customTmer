@@ -1,0 +1,15 @@
+ public void Timer(OfflinePlayer offlinePlayer) {
+    	if (offlinePlayer.isOnline()) {
+    		Bukkit.getServer().getScheduler().runTaskLater(GameMain.getGameMain(), ()->{
+    			for (int s=1;s>0;s--) {
+    				Bukkit.getServer().getScheduler().runTaskLater(GameMain.getGameMain(), ()->{
+    					new gameScoreboard().createScoreboard((Player) offlinePlayer.getPlayer());
+    					Timer(offlinePlayer);
+    					return;
+    				}, 20);
+    			}
+    		}, 30);	
+    	}else {
+    		return;
+    	}
+	}
